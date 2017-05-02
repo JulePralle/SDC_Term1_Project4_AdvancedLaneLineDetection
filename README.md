@@ -55,10 +55,10 @@ The image below shows three of the test images before and after the distortion.
 
 IMAGES
 
-These three images will be further used in this report to show all the steps which are taken to detect the lane lines. These images are choosen because they are good examples for demonstrating the typical difficulties while lane line detection like shadows and diffrent colours of the pavement. 
+
 
 ## Persective Transform
-A perspective transform maps the points in a given image to different, desired image points with a new perspective. Here we use the perspective transform in a bird’s-eye view that let’s us view a lane from above. This will be useful for calculating the lane curvature later on.
+A perspective transform maps the points (source points) in a given image to different, desired image points(destination points) with a new perspective. Here we use the perspective transform in a bird’s-eye view that let’s us view a lane from above. This will be useful for calculating the lane curvature later on.
 
 The figures below show the process steps of the perspective transformation. The red marks are showing the source points in the left image and the destination points in the the right and already warped image. 
 
@@ -121,26 +121,24 @@ SEARCHING WINDOW
 
 
 ## Curvature and Vehicle Position
-Now I have a thresholded image, where I have estimated which pixels belong to the left and right lane lines , and I have fit a polynomial to those pixel positions. To compute the radius of curvature of the fit.
-R
-​curve
-​​ =
-​∣2A∣
-​
-​(1+(2Ay+B)
-​2
-​​ )
-​3/2
-​​ 
-​​ 
+Now I have a thresholded image, where I have estimated which pixels belong to the left and right lane lines, and I have fit a polynomial to those pixel positions. With this information and converting x and y from pixels space to meters, the radius of curvature can be calculated. 
+For this calculation the assumption is made that the camera  is mounted at the center of the car, such that the lane center is the midpoint at the bottom of the image between the two lines are detected. The offset of the lane center from the center of the image (converted from pixels to meters) is the distance from the center of the lane.
 
 
 ## Warp back
+The lane line fit with a polynomial now need to warp back onto the original image. To do that the polynomial line fit will be warped back with the perspective transform using the inverse matrix of the same given source and destination points. The image below shows the result.
+
+WARP BACK
+
 
 ## Visual Output
+The visual output will show the result of the lane line detection in form of an colored area. The values of curvature and vehicle position will be shown as well. An example of the output is shown in the image below.
 
 
  ## Discussion
+ 
+ * Filtering not optimal
+ * warped before color thresholding made it much better
  
 Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust?
 
