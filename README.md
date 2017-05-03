@@ -73,7 +73,7 @@ The image below shows three of the test images before and after the distortion.
 
 ![alt text][image2]
 
-![alt text][image2]
+![alt text][image3]
 
 
 
