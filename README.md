@@ -45,7 +45,6 @@ This video shows the result of the project.
 
 
 The goals / steps of this project are the following:
-
 1. Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
 2. Apply a distortion correction to raw images.
 3. Apply a perspective transform to rectify binary image ("birds-eye view").
@@ -61,7 +60,6 @@ The goals / steps of this project are the following:
 
 
 My project includes the following files:
-
 * AdvancedLaneLineDetection.ipynb: Notebook, containing the code 
 * result_video.gif: Video, showing the detected lane boundaries
 * README.md: Report for summarizing the results
@@ -71,11 +69,13 @@ My project includes the following files:
 ## 1. Camera Calibration
 When a camera looks at 3D objecst in the real wold and transforms them into 2D image, the transformation causes distortion in the 2D image. To correct the distortion a chessboard will be used because the undistorted dimensions are known. We can compare the images of a chessboard taken by the camera in diffrent kind of angles and distances with the known dimension of a chessboard and calculate the distortion coefficents by using the OpenCV functions findChessboardCorners() and calibrateCamera() and in the end undistort the images.
 The figure below shows one of the calibration chessboard images distort and undistort with drawn corners.
+
 ![alt text][image1]
 
 ## 2. Distortion Correction
 To apply the distortion to the raw images the distortion coefficients which are calculated in the camera calibration will be used. 
 The image below shows three of the test images before and after the distortion.
+
 ![alt text][image2]
 ![alt text][image3]
 
@@ -85,14 +85,16 @@ A perspective transform maps the points (source points) in a given image to diff
 
 The figures below show the process steps of the perspective transformation. The red marks are showing the source points in the left image and the destination points in the the right and already warped image. 
 The first figure shows an image with straight lane lines, which have been used to create the source and destination points. 
+
 ![alt text][image4]
 
 The second figure shows an image with curved lane lines with the same source and destination points as above. To check if the perspective transform is done the right way, the curved lane lines should be parallel in the warped presentation, which is the case.
+
 ![alt text][image5]
 
 
 ## 4. Thresholding
-To detect the lane lines in an image some image processing is helpful to extract the importent imformation.
+To detect the lane lines in an image some image processing is helpful to extract the importent information.
 
 ### 4.1 Color Thresholding
 Lane lines sometimes are better to detect when the image is converted to another color space. The most common color spaces are grayscale, RGB and HLS. The next figures will show one image with difficult conditions for lane line finding converted to diffrent color spaces. To take out the lane line information the color spaces will be thresholded so that they in the end give out a binary image. The thresholds were choosen by trail and error.
