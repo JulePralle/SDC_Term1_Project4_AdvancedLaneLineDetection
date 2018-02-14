@@ -37,7 +37,7 @@ The goal of this project is to write a software pipeline to identify the lane bo
 
 This video shows the result of the project.
 
-![result_video](./result_video.gif) 
+![result_video](./result_video.gif)
 
 
 
