@@ -1,6 +1,5 @@
-# **Self-Driving Car Engineer - Nanodegree** 
-## ---Computer Vision---
 # Advanced Lane Line Detection
+Self-Driving Car Engineer Nanodegree Program
 
 ---
 [//]: # (Image References)
@@ -38,7 +37,7 @@ The goal of this project is to write a software pipeline to identify the lane bo
 
 This video shows the result of the project.
 
-[Video Link](https://youtu.be/PBefvy4slDo)
+![result_video](./result_video.gif) 
 
 
 
